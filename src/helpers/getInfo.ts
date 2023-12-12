@@ -1,7 +1,7 @@
 const getInfoRecursive = async (shortUrl: string, dir: string = "", root: string = "0", cookie: string = "") => {
     const queryString = new URLSearchParams({ app_id: "250528", shorturl: shortUrl.slice(1), root, dir }).toString()
 
-    const response: any = await fetch("https://www.terabox.com/share/list?" + queryString, {
+    const response: any = await fetch("https://www.1024tera.com/share/list?" + queryString, {
         method: "GET",
         headers: { Cookie: cookie },
     }).then(async (res) => await res.json())
@@ -30,7 +30,7 @@ const getAllInfo = async (shortUrl: string, pwd: string = "") => {
 
         const queryString = new URLSearchParams({ app_id: "250528", shorturl: shortUrl, root: "1" }).toString()
 
-        const response: any = await fetch("https://www.terabox.com/api/shorturlinfo?" + queryString, {
+        const response: any = await fetch("https://www.1024tera.com/api/shorturlinfo?" + queryString, {
             method: "GET",
             headers: { Cookie: cookie },
         }).then(async (res) => await res.json())
@@ -68,7 +68,7 @@ const getAllInfo = async (shortUrl: string, pwd: string = "") => {
 const getCookieWithPass = async (shortUrl: string, pwd: string) => {
     const queryString = new URLSearchParams({ app_id: "250528", surl: shortUrl.slice(1) }).toString()
 
-    return await fetch("https://www.terabox.com/share/verify?" + queryString, {
+    return await fetch("https://www.1024tera.com/share/verify?" + queryString, {
         method: "POST",
         body: new URLSearchParams({ pwd }),
     }).then(async (res) => {
